@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  /><title>Corrige • OMR local</title
+  ><link rel="stylesheet" href="style.css" />
+  <header><b>◎ Corrige</b><span>20 questões · A–E · dados locais</span></header>
+  <main>
+    <h1>Corretor OMR.</h1>
+    <p>Fotografe o cartão, confira as respostas e corrija.</p>
+    <section>
+      <h2>1. Prepare a atividade</h2>
+      <div class="actions">
+        <button id="print">Imprimir cartão A4</button
+        ><button id="demo">Testar exemplo</button
+        ><button id="example">Baixar exemplo PNG</button>
+      </div>
+      <p>Gabarito fixo · edição bloqueada · nota de 0 a 10</p>
+      <div id="key" class="grid"></div>
+    </section>
+    <section>
+      <h2>2. Leia e confira</h2>
+      <label
+        >Nome ou identificação
+        <input id="student" maxlength="120" placeholder="Ex.: Ana • turma 2B"
+      /></label>
+      <div class="actions">
+        <label class="button"
+          >Escolher foto<input
+            id="upload"
+            type="file"
+            accept="image/*"
+            hidden /></label
+        ><label class="button"
+          >Fotografar<input
+            id="camera"
+            type="file"
+            accept="image/*"
+            capture="environment"
+            hidden /></label
+        ><button id="rotate">Girar foto 90°</button
+        ><button id="manual">Ajustar 4 marcadores</button>
+      </div>
+      <p id="status" role="status" aria-live="polite">
+        Fotografe com o título para cima e os quatro quadrados visíveis.
+      </p>
+      <canvas
+        id="photo"
+        width="800"
+        height="200"
+        aria-label="Foto do cartão e alinhamento"
+      ></canvas>
+      <p>
+        No ajuste manual, clique nos centros: superior esquerdo, superior
+        direito, inferior direito, inferior esquerdo.
+      </p>
+      <div id="review" class="grid"></div>
+      <p id="score"></p>
+      <label
+        ><input type="checkbox" id="confirmed" /> Conferi todas as respostas e o
+        alinhamento.</label
+      >
+      <p><button id="save" disabled>Guardar resultado revisado</button></p>
+    </section>
+    <section>
+      <h2>3. Resultados da sessão</h2>
+      <p>Exporte antes de fechar ou atualizar esta aba.</p>
+      <div class="actions">
+        <button id="csv">Exportar CSV</button
+        ><button id="clear">Apagar resultados</button>
+      </div>
+      <div id="results"></div>
+    </section>
+    <details>
+      <summary>Instruções e privacidade</summary>
+      <ol>
+        <li>Imprima o cartão A4 em escala 100%, sem cabeçalhos ou rodapés.</li>
+        <li>
+          Preencha completamente um círculo por questão com caneta escura.
+          Preserve os quadrados.
+        </li>
+        <li>
+          Fotografe de cima com papel plano, boa luz e sem sombras. Use o cartão
+          desta aplicação.
+        </li>
+        <li>
+          Confira o contorno de alinhamento e todas as respostas. Amarelo indica
+          incerteza; selecione a resposta e marque Revisado.
+        </li>
+        <li>Confirme e guarde. A correção usa o gabarito fixo do simulado.</li>
+      </ol>
+      <p>
+        Protótipo experimental: desfoque, rasuras, sombras ou papel curvado
+        podem causar erros, mesmo sem alerta. Nome e turma são digitados. Não há
+        reconhecimento de escrita.
+      </p>
+      <p>
+        Processamento integral no navegador, sem envio de fotos, bibliotecas
+        remotas ou armazenamento persistente. Fechar ou atualizar perde os
+        dados. Consulte README.md para hospedagem e testes.
+      </p>
+    </details>
+  </main>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</html>
